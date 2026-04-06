@@ -14,6 +14,15 @@ const createWindow = () => {
 
   win.loadFile('index.html')
   win.setIgnoreMouseEvents(false)
+
+  // controls z order, 'screen-saver' is the highest level, above all other windows
+  win.setAlwaysOnTop(true, 'screen-saver')
+
+  // macOS specific
+  // allows the window to be visible on all workspaces, including full screen ones
+  win.setVisibleOnAllWorkspaces(true, {
+    visibleOnFullScreen: true,
+  })
 }
 
 app.whenReady().then(() => {
